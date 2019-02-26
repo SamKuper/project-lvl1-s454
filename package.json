@@ -3,8 +3,7 @@
  "version": "0.0.1",
  "description": "console mini games",
  "main": "dist",
- "keywords": "brain, logic, games"
-
+ "keywords": "brain, logic, games",
  "devDependencies": {
   "@babel/cli": "^7.2.3",
   "@babel/core": "^7.3.3",
