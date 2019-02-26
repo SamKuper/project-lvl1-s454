@@ -1,8 +1,9 @@
 {
  "name": "samkup1project",
  "version": "0.0.1",
- "description": "",
- "main": "dist/index.js",
+ "description": "console mini games",
+ "main": "dist",
+ "keywords": "brain, logic, games"
 
  "devDependencies": {
   "@babel/cli": "^7.2.3",
