@@ -3,12 +3,6 @@
  "version": "0.0.1",
  "description": "console mini games",
  "keywords": ["brain", "logic", "games"],
- "devDependencies": {
-  "@babel/cli": "^7.2.3",
-  "@babel/core": "^7.3.3",
-  "@babel/node": "^7.2.2",
-  "@babel/preset-env": "^7.3.1"
- },
  "scripts": {
   "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
   "prepublishOnly": "npm run build"
@@ -19,6 +13,12 @@
  "files": [
   "dist"
  ],
+ "devDependencies": {
+  "@babel/cli": "^7.2.3",
+  "@babel/core": "^7.3.3",
+  "@babel/node": "^7.2.2",
+  "@babel/preset-env": "^7.3.1"
+ },
  "dependencies": {
   "readline-sync": "^1.4.9"
  }
