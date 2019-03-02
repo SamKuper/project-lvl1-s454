@@ -9,9 +9,9 @@ const trueAnswer = (str) => {
   const stringToExpression = (str, i, j, acc1, acc2) => {
     if (str[i] !== ' ') {
       if (str[j] !== ' ') {
-        return stringToExpression(str, i + 1, j - 1, String(acc1 + str[i]), String(str[j] + acc2));
+        return stringToExpression(str, i + 1, j - 1, (acc1 + str[i]), str[j] + acc2);
       }
-      return stringToExpression(str, i + 1, j, String(acc1 + str[i]), String(acc2));
+      return stringToExpression(str, i + 1, j, acc1 + str[i], (acc2));
     }
     if (str[i] === ' ') {
       if (str[j] === ' ') {
@@ -23,7 +23,7 @@ const trueAnswer = (str) => {
         }
         return String(Number(acc1) * Number(acc2))
       }
-      return stringToExpression(str, i, j - 1, String(acc1), String(str[j] + acc2));
+      return stringToExpression(str, i, j - 1, (acc1), str[j] + acc2);
     }
   };
   return stringToExpression(str, i, j, acc1, acc2);
