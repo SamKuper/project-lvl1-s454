@@ -10,7 +10,7 @@ const isPrime = (num) => {
   }
   const minDivisor = 3;
   const iter = (i) => {
-    if (num % i !== 0 && i > num / i) {
+    if (num % i !== 0 && i > num / i || num < 4) {
       return true;
     }
     if (num % i === 0) {
