@@ -14,16 +14,18 @@ export const startGame = (gameConfig, gameMessage) => {
   const rounds = 3;
   const iter = (i) => {
     const gameData = gameConfig();
-    console.log(car(gameData));
+    console.log('Question  ' + car(gameData));
     const answer = readlineSync.question('Your answer: ');
     if (answer == cdr(gameData) && i === 1) {
-      return console.log(`Congratulations, ${askName}!`);
+      console.log(`Congratulations, ${askName}!`);
+      return;
     }
     if (answer != cdr(gameData)) {
-      return console.log(`${answer} is wrong answer ;(. Correct answer was ${cdr(gameData)}, try again, ${askName}`);
+      console.log(`${answer} is wrong answer ;(. Correct answer was ${cdr(gameData)}, try again, ${askName}`);
+      return;
     }
     console.log('Correct!');
-    return iter(i - 1);
+    iter(i - 1);
   };
-  return iter(rounds);
+  iter(rounds);
 };
