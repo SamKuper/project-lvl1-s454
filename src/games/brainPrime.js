@@ -16,12 +16,12 @@ const isPrime = (num) => {
     if (num % i === 0) {
       return false;
     }
-    return iter(i + 1)
+    return iter(i + 2);
   };
   return iter(minDivisor)
 };
 const gameConfig = () => {
-  const question = generateNumber(1, 100);
+  const question = generateNumber(1, 150);
   const trueAnswer = isPrime(question) ? 'yes' : 'no';
   return cons(question, trueAnswer);
 };
