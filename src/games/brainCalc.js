@@ -1,49 +1,31 @@
 import { startGame } from '..';
 import generateNumber from '../utils';
+import { cons, car, cdr } from 'hexlet-pairs'
 
-const trueAnswer = (str) => {
-  let i = 0;
-  let j = str.length - 1;
-  let acc1 = '';
-  let acc2 = '';
-  const stringToExpression = (str, i, j, acc1, acc2) => {
-    if (str[i] !== ' ') {
-      if (str[j] !== ' ') {
-        return stringToExpression(str, i + 1, j - 1, (acc1 + str[i]), str[j] + acc2);
-      }
-      return stringToExpression(str, i + 1, j, acc1 + str[i], (acc2));
-    }
-    if (str[i] === ' ') {
-      if (str[j] === ' ') {
-        if (str[i + 1] === '+') {
-          return String(Number(acc1) + Number(acc2));
-        }
-        if (str[i + 1] === '-') {
-          return String(Number(acc1) - Number(acc2));
-        }
-        return String(Number(acc1) * Number(acc2))
-      }
-      return stringToExpression(str, i, j - 1, (acc1), str[j] + acc2);
-    }
-  };
-  return stringToExpression(str, i, j, acc1, acc2);
+const operationChoose = (num) => {
+  switch(car(cdr(num))) {
+    case 1:
+     return cons(car(num) + cdr(cdr(num)), '+');
+    case 2:
+      return cons(car(num) - cdr(cdr(num)), '-');
+    case 3:
+      return cons(car(num) * cdr(cdr(num)), '*');
+  }
 };
 const gameMessage = 'What is the result of the expression?';
 const createQuestion = () => {
   const value_a = generateNumber(1, 25);
   const value_b = generateNumber(1, 25);
-  const operatorChoose = () => {
-    const operatorNumber = generateNumber(1, 3);
-    switch(operatorNumber) {
-      case 1:
-       return '-';
-      case 2:
-       return '+';
-      case 3:
-        return '*';
-    }
-  };
-  const operator = operatorChoose();
-  return `${value_a} ${operator} ${value_b}`;
+  const operatorNumber = generateNumber(1, 3);
+  return cons(value_a, cons(operatorNumber, value_b));
 };
-export default () => startGame(createQuestion, trueAnswer, gameMessage);
+const trueAnswer = (question) => car(operationChoose(question));
+const gameConfig = () => {
+  const question = createQuestion();
+  const value_a = car(question);
+  const value_b = cdr(cdr(question));
+  const operator = cdr(operationChoose(question));
+  const questionToString = `${value_a} ${operator} ${value_b}`;
+  return cons(questionToString, trueAnswer(question));
+};
+export default () => startGame(gameConfig, gameMessage);

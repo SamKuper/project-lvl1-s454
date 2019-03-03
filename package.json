@@ -1,6 +1,6 @@
 {
   "name": "samkup1project",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "console mini games",
   "keywords": [
     "brain",
@@ -25,6 +25,7 @@
     "eslint-plugin-import": "^2.16.0"
   },
   "dependencies": {
+    "hexlet-pairs": "^1.0.8",
     "project": "^0.1.6",
     "readline-sync": "^1.4.9"
   },
