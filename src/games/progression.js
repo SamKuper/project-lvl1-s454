@@ -3,7 +3,9 @@ import generateNumber from '../utils';
 import { cons } from 'hexlet-pairs';
 
 const gameMessage = 'What number is missing in the progression?';
+
 const progressionMembers = 10;
+
 const gameConfig = () => {
   const zeroMember = generateNumber(1, 20);
   const diff = generateNumber(1, 7);
@@ -23,4 +25,5 @@ const gameConfig = () => {
   const trueAnswer = String(zeroMember + (diff * emptyPosition));
   return cons(question, trueAnswer);
 };
+
 export default () => startGame(gameConfig, gameMessage);
