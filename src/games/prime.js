@@ -5,8 +5,11 @@ import { cons } from 'hexlet-pairs';
 const gameMessage = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 const isEven = num => num % 2 === 0;
 const isPrime = (num) => {
-  if (isEven(num) && num > 3) {
+  if (isEven(num) && num > 3 || num < 2) {
     return false;
+  }
+  if (num === 2) {
+    return true;
   }
   const minDivisor = 3;
   const iter = (i) => {
