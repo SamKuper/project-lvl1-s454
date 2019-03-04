@@ -14,7 +14,7 @@ export const startGame = (gameConfig, gameMessage) => {
   const rounds = 3;
   const iter = (i) => {
     const gameData = gameConfig();
-    console.log('Question  ' + car(gameData));
+    console.log('Question:  ' + car(gameData));
     const answer = readlineSync.question('Your answer: ');
     if (answer == cdr(gameData) && i === 1) {
       console.log(`Congratulations, ${askName}!`);

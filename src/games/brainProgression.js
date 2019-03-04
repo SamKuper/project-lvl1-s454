@@ -20,7 +20,7 @@ const gameConfig = () => {
     return iter(progressionMembers, '');
   };
   const question = createQuestion();
-  const trueAnswer = zeroMember + (diff * emptyPosition);
+  const trueAnswer = String(zeroMember + (diff * emptyPosition));
   return cons(question, trueAnswer);
 };
 export default () => startGame(gameConfig, gameMessage);
