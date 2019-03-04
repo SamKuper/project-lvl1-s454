@@ -12,7 +12,7 @@ const gameConfig = () => {
   zeroMember + (diff * position);
   const createQuestion = () => {
     const iter = (i, acc) => {
-      if (i === 1) {
+      if (i === 0) {
         return `${findValue(i)}` + acc;
       }
       return iter(i - 1, ` ${findValue(i)}` + acc);
