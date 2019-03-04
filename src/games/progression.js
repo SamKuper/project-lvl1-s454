@@ -7,7 +7,7 @@ const progressionMembers = 10;
 const gameConfig = () => {
   const zeroMember = generateNumber(1, 20);
   const diff = generateNumber(1, 7);
-  const emptyPosition = generateNumber(1, progressionMembers);
+  const emptyPosition = generateNumber(0, progressionMembers - 1);
   const findValue = (position) => position === emptyPosition ? '..' :
   zeroMember + (diff * position);
   const createQuestion = () => {
@@ -17,7 +17,7 @@ const gameConfig = () => {
       }
       return iter(i - 1, ` ${findValue(i)}` + acc);
     };
-    return iter(progressionMembers, '');
+    return iter(progressionMembers - 1, '');
   };
   const question = createQuestion();
   const trueAnswer = String(zeroMember + (diff * emptyPosition));
